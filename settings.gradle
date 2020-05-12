@@ -1,0 +1,3 @@
+rootProject.name='PrefUtil'
+include ':app'
+include ':prefutils'
