@@ -16,59 +16,59 @@ object PrefUtils {
             msp = context.getSharedPreferences(flag, 0)
         }
     }
-    fun setBoolean(context: Context, key: String?, value: Boolean) {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
-        } else {
+    fun setBoolean(key: String?, value: Boolean) {
+        if (mspIsNull()) {
             msp?.edit()?.putBoolean(key, value)?.apply()
         }
     }
 
-    fun setString(context: Context, key: String?, string: String?) {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
-        } else {
+    fun setString(key: String?, string: String?) {
+        if (mspIsNull()) {
             msp?.edit()?.putString(key, string)?.apply()
         }
     }
 
-    fun setInt(context: Context, key: String?, i: Int) {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
-        } else {
+    fun setInt(key: String?, i: Int) {
+        if (mspIsNull()) {
             msp?.edit()?.putInt(key, i)?.apply()
         }
     }
 
-    fun getBoolean(context: Context, key: String?, defValue: Boolean): Boolean? {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
+    fun getBoolean(key: String?, defValue: Boolean): Boolean? {
+        return if (mspIsNull()) {
+            msp?.getBoolean(key, defValue)
         } else {
-            return msp?.getBoolean(key, defValue)
+            defValue
         }
     }
 
-    fun getString(context: Context, key: String?, difString: String?): String? {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
+    fun getString(key: String?, difString: String?): String? {
+        return if (mspIsNull()) {
+            msp?.getString(key, difString)
         } else {
-            return msp?.getString(key, difString)
+            difString
         }
     }
 
-    fun getInt(context: Context, key: String?, difi: Int): Int {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
+    fun getInt(key: String?, difi: Int): Int {
+        return if (mspIsNull()) {
+            msp!!.getInt(key, difi)
         } else {
-            return msp!!.getInt(key, difi)
+            difi
         }
     }
 
-    fun deleteData(context: Context, key: String?) {
-        if (msp == null) {
-            throw RuntimeException("PrefUtils  not init")
-        } else {
+    fun deleteData(key: String?) {
+        if (mspIsNull()) {
             msp?.edit()?.remove(key)?.apply()
+        }
+    }
+
+    private fun mspIsNull():Boolean{
+        return if (msp == null) {
+            throw RuntimeException("PrefUtils  not init,需要先初始化")
+        } else {
+            true
         }
     }
 }
