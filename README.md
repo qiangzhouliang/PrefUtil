@@ -31,5 +31,7 @@ println(PrefUtils.getString("111","222"))
 # 3 版本更新说明
 ## 3.1 1.0.1 版本
 封装了string，int，Boolean值的存储
+## 3.2 1.0.2 版本
+封装了string，int，Boolean值的存储，修改方法，可以使得在java代码中也可以调运
 
 
