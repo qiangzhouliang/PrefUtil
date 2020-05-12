@@ -1,6 +1,6 @@
 # PrefUtils
 SharedPreferences 存储简单封装实现 
-使用地址：https://jitpack.io/#qiangzhouliang/PrefUtil/1.0.1
+使用地址：https://jitpack.io/#qiangzhouliang/PrefUtil/1.0.2
 # 1 如何引入自己的项目
 ## 1.1 将JitPack存储库添加到您的构建文件中
 将其添加到存储库末尾的root（项目） build.gradle中：
@@ -15,7 +15,7 @@ allprojects {
 ## 1.2 添加依赖项
 ~~~
 dependencies {
-	  implementation 'com.github.qiangzhouliang:PrefUtil:1.0.1'
+	  implementation 'com.github.qiangzhouliang:PrefUtil:1.0.2'
 }
 ~~~
 # 2 如何使用
