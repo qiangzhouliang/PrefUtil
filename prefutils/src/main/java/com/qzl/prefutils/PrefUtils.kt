@@ -11,29 +11,34 @@ import android.content.SharedPreferences
  */
 object PrefUtils {
     private var msp: SharedPreferences? = null
+    @JvmStatic
     fun init(context: Context,flag:String? = "config"){
         if (msp == null){
             msp = context.getSharedPreferences(flag, 0)
         }
     }
+    @JvmStatic
     fun setBoolean(key: String?, value: Boolean) {
         if (mspIsNull()) {
             msp?.edit()?.putBoolean(key, value)?.apply()
         }
     }
 
+    @JvmStatic
     fun setString(key: String?, string: String?) {
         if (mspIsNull()) {
             msp?.edit()?.putString(key, string)?.apply()
         }
     }
 
+    @JvmStatic
     fun setInt(key: String?, i: Int) {
         if (mspIsNull()) {
             msp?.edit()?.putInt(key, i)?.apply()
         }
     }
 
+    @JvmStatic
     fun getBoolean(key: String?, defValue: Boolean): Boolean? {
         return if (mspIsNull()) {
             msp?.getBoolean(key, defValue)
@@ -42,6 +47,7 @@ object PrefUtils {
         }
     }
 
+    @JvmStatic
     fun getString(key: String?, difString: String?): String? {
         return if (mspIsNull()) {
             msp?.getString(key, difString)
@@ -50,6 +56,7 @@ object PrefUtils {
         }
     }
 
+    @JvmStatic
     fun getInt(key: String?, difi: Int): Int {
         return if (mspIsNull()) {
             msp!!.getInt(key, difi)
@@ -58,6 +65,7 @@ object PrefUtils {
         }
     }
 
+    @JvmStatic
     fun deleteData(key: String?) {
         if (mspIsNull()) {
             msp?.edit()?.remove(key)?.apply()
